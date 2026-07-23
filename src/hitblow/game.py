@@ -52,6 +52,14 @@ def play(digits=3):
         tries += 1
         hit, blow = judge(secret, guess)
         print(f"  Hit={hit}  Blow={blow}")
+
+        from .hint import hint
+
+        ans = input("ヒントが欲しいですか？ (y/n)：").strip().lower()
+
+        if ans == "y":
+            print(hint(secret, guess))
+            
         if hit == digits:
 
             # ===== ③ 勝利時に足す（スコア・履歴 など）: ここに書く =====
